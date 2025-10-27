@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Sarah Thompson",
+        "position": "President",
+        "bio": "Senior Philosophy major passionate about fostering intellectual discourse and academic excellence at Regent University.",
+        "image": "images/board/president.jpg"
+    },
+    {
+        "name": "Michael Chen",
+        "position": "Vice President",
+        "bio": "Junior Political Science student dedicated to organizing engaging events and supporting institute initiatives.",
+        "image": "images/board/vp.jpg"
+    },
+    {
+        "name": "Emily Rodriguez",
+        "position": "Secretary",
+        "bio": "Sophomore English major managing communications and maintaining comprehensive institute records.",
+        "image": "images/board/secretary.jpg"
+    },
+    {
+        "name": "David Williams",
+        "position": "Treasurer",
+        "bio": "Junior Business major overseeing financial operations and budget management for all institute activities.",
+        "image": "images/board/treasurer.jpg"
+    },
+    {
+        "name": "Rachel Anderson",
+        "position": "Events Coordinator",
+        "bio": "Senior Communications student organizing symposiums, debates, and guest speaker events.",
+        "image": "images/board/events.jpg"
+    },
+    {
+        "name": "James Martinez",
+        "position": "Outreach Director",
+        "bio": "Junior Theology student building partnerships and expanding the institute's campus presence.",
+        "image": "images/board/outreach.jpg"
+    }
+]

@@ -1,0 +1,22 @@
+# GitHub Pages Configuration for Thomestic Institute Website
+title: Thomestic Institute
+description: Fostering intellectual discourse and academic excellence at Regent University
+theme: null
+baseurl: "" # Leave empty if hosting at username.github.io, or set to "/repository-name" if using project page
+
+# Build settings
+exclude:
+  - README.md
+  - deploy.sh
+  - .git
+  - .gitignore
+  - package.json
+  - node_modules
+
+# GitHub Pages processes Jekyll by default, but we want to serve static files
+# Setting these prevents Jekyll processing
+include:
+  - _config.yml
+  
+# Ensure proper MIME types
+plugins: []

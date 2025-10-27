@@ -1,0 +1,85 @@
+{
+    "_comment": "All events go in the allEvents array. They are automatically sorted into upcoming/past based on the current date. Use format 'Month DD, YYYY' for dates.",
+    "allEvents": [
+        {
+            "title": "Philosophy and Faith Symposium",
+            "date": "November 15, 2024",
+            "time": "6:00 PM",
+            "location": "Robertson Hall, Room 201",
+            "description": "Join us for an evening exploring the intersection of philosophical inquiry and religious faith. Features panel discussion and Q&A session.",
+            "speaker": "Dr. Robert Williams, Georgetown University"
+        },
+        {
+            "title": "Annual Thomestic Debate Championship",
+            "date": "December 3, 2024",
+            "time": "7:00 PM",
+            "location": "Student Center Auditorium",
+            "description": "Watch as teams from across campus debate 'Resolved: Artificial Intelligence poses an existential threat to human dignity.' Open to all students.",
+            "speaker": "Moderated by Prof. Jennifer Blake"
+        },
+        {
+            "title": "Ethics in Modern Medicine",
+            "date": "January 18, 2025",
+            "time": "5:30 PM",
+            "location": "Communication Building, Theater",
+            "description": "A discussion on bioethics, medical decision-making, and the philosophy of healthcare in the 21st century.",
+            "speaker": "Dr. Marcus Johnson, Johns Hopkins"
+        },
+        {
+            "title": "Spring Philosophy Conference",
+            "date": "February 22, 2025",
+            "time": "9:00 AM - 4:00 PM",
+            "location": "University Chapel",
+            "description": "All-day conference featuring student paper presentations, keynote addresses, and networking opportunities for philosophy enthusiasts.",
+            "speaker": "Multiple Speakers"
+        },
+        {
+            "title": "Fall Semester Opening Reception",
+            "date": "September 5, 2024",
+            "time": "5:00 PM",
+            "location": "Main Library, Reading Room",
+            "description": "Kicked off the academic year with an inspiring talk on 'The Life of the Mind' and welcomed new members to the institute.",
+            "speaker": "Dean Margaret Thompson"
+        },
+        {
+            "title": "Political Philosophy Roundtable",
+            "date": "October 12, 2024",
+            "time": "6:30 PM",
+            "location": "Robertson Hall, Room 105",
+            "description": "Faculty and students engaged in lively discussion about justice, governance, and the common good in contemporary society.",
+            "speaker": "Panel of Regent Faculty"
+        },
+        {
+            "title": "C.S. Lewis Reading Group",
+            "date": "September 20, 2024",
+            "time": "4:00 PM",
+            "location": "Student Center, Conference Room B",
+            "description": "Discussed 'The Abolition of Man' and its relevance to modern educational philosophy.",
+            "speaker": "Student-led Discussion"
+        },
+        {
+            "title": "Ancient Philosophy Workshop",
+            "date": "August 28, 2024",
+            "time": "3:00 PM",
+            "location": "Philosophy Department Lounge",
+            "description": "Explored Aristotelian virtue ethics and its applications to contemporary moral challenges.",
+            "speaker": "Dr. Helen Patterson"
+        },
+        {
+            "title": "Aquinas and Natural Law",
+            "date": "March 15, 2025",
+            "time": "4:00 PM",
+            "location": "Robertson Hall, Room 301",
+            "description": "Deep dive into Thomas Aquinas's natural law theory and its relevance to contemporary ethical debates.",
+            "speaker": "Dr. Michael Reynolds"
+        },
+        {
+            "title": "Philosophy Film Night: The Matrix",
+            "date": "November 29, 2024",
+            "time": "7:00 PM",
+            "location": "Student Center Theater",
+            "description": "Watch 'The Matrix' followed by a discussion on epistemology, free will, and the nature of reality.",
+            "speaker": "Film Discussion Led by Philosophy Faculty"
+        }
+    ]
+}
