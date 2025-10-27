@@ -1,8 +1,8 @@
-# Thomestic Institute Website
+# Thomistic Institute Website
 
-A modern, responsive website for the Thomestic Institute at Regent University, optimized for GitHub Pages hosting.
+A modern, responsive website for the Thomistic Institute at Regent University, optimized for GitHub Pages hosting.
 
-🌐 **Live Demo**: [View Live Site](https://yourusername.github.io/thomestic-institute)
+🌐 **Live Demo**: [View Live Site](https://yourusername.github.io/Thomistic-institute)
 
 ## ✨ Features
 
@@ -20,7 +20,7 @@ A modern, responsive website for the Thomestic Institute at Regent University, o
 ### Option 1: Use This Template (Easiest)
 
 1. Click "Use this template" button → "Create a new repository"
-2. Name it `thomestic-institute` (or any name you prefer)
+2. Name it `Thomistic-institute` (or any name you prefer)
 3. Go to Settings → Pages
 4. Source: Deploy from a branch
 5. Branch: `main` / Folder: `/ (root)`
@@ -38,8 +38,8 @@ A modern, responsive website for the Thomestic Institute at Regent University, o
 ### Option 3: Clone and Customize
 
 ```bash
-git clone https://github.com/yourusername/thomestic-institute.git
-cd thomestic-institute
+git clone https://github.com/yourusername/Thomistic-institute.git
+cd Thomistic-institute
 
 # Edit content (see customization guide below)
 
@@ -120,7 +120,7 @@ Edit `js/main.js`:
 ```javascript
 const CONFIG = {
     newsletterFormUrl: 'YOUR_GOOGLE_FORM_LINK_HERE',
-    contactEmail: 'info@thomestic.regent.edu',
+    contactEmail: 'info@Thomistic.regent.edu',
     contactPhone: '(757) 352-4000'
 };
 ```
@@ -205,7 +205,7 @@ Changes appear live in 2-5 minutes!
 ## 📁 Complete File Structure
 
 ```
-thomestic-institute/
+Thomistic-institute/
 ├── 📄 index.html              # Main page
 ├── 🎨 css/
 │   └── styles.css            # All styles
@@ -236,7 +236,7 @@ thomestic-institute/
 
 ## 📝 License
 
-© 2024 Thomestic Institute, Regent University. All rights reserved.
+© 2024 Thomistic Institute, Regent University. All rights reserved.
 
 ## 🤝 Contributing
 
@@ -248,10 +248,10 @@ thomestic-institute/
 
 ## 📞 Support
 
-- Check [Issues](https://github.com/yourusername/thomestic-institute/issues)
+- Check [Issues](https://github.com/yourusername/Thomistic-institute/issues)
 - Review this README
 - Contact maintainers
 
 ---
 
-Built with ❤️ for the Thomestic Institute at Regent University
+Built with ❤️ for the Thomistic Institute at Regent University
