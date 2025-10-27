@@ -7,115 +7,6 @@ const CONFIG = {
     contactPhone: '(757) 352-4000'
 };
 
-// Inline data fallback for when fetch doesn't work (e.g., file:// protocol)
-const FALLBACK_DATA = {
-    board: [
-        {
-            "name": "Sarah Thompson",
-            "position": "President",
-            "bio": "Senior Philosophy major passionate about fostering intellectual discourse and academic excellence at Regent University.",
-            "image": "images/board/president.png"
-        },
-        {
-            "name": "Michael Chen",
-            "position": "Vice President",
-            "bio": "Junior Political Science student dedicated to organizing engaging events and supporting institute initiatives.",
-            "image": "images/default-avatar.png"
-        },
-        {
-            "name": "Emily Rodriguez",
-            "position": "Secretary",
-            "bio": "Sophomore English major managing communications and maintaining comprehensive institute records.",
-            "image": "images/default-avatar.png"
-        },
-        {
-            "name": "David Williams",
-            "position": "Treasurer",
-            "bio": "Junior Business major overseeing financial operations and budget management for all institute activities.",
-            "image": "images/default-avatar.png"
-        }
-    ],
-    awards: [
-        {
-            "title": "Excellence in Academic Programming",
-            "year": "2024",
-            "description": "Recognized by Regent University Student Life for outstanding contribution to intellectual discourse and student development through innovative programming."
-        },
-        {
-            "title": "Best New Student Organization",
-            "year": "2023",
-            "description": "Awarded for exceptional growth and impact in the first year of operation, demonstrating strong leadership and community engagement."
-        },
-        {
-            "title": "Community Service Award",
-            "year": "2023",
-            "description": "Honored for dedication to serving the Virginia Beach community through educational outreach programs and philosophical discussions."
-        }
-    ],
-    events: [
-        {
-            "title": "Philosophy and Faith Symposium",
-            "date": "November 15, 2024",
-            "time": "6:00 PM",
-            "location": "Robertson Hall, Room 201",
-            "description": "Join us for an evening exploring the intersection of philosophical inquiry and religious faith. Features panel discussion and Q&A session.",
-            "speaker": "Dr. Robert Williams, Georgetown University"
-        },
-        {
-            "title": "Annual Thomestic Debate Championship",
-            "date": "December 3, 2024",
-            "time": "7:00 PM",
-            "location": "Student Center Auditorium",
-            "description": "Watch as teams from across campus debate 'Resolved: Artificial Intelligence poses an existential threat to human dignity.' Open to all students.",
-            "speaker": "Moderated by Prof. Jennifer Blake"
-        },
-        {
-            "title": "Ethics in Modern Medicine",
-            "date": "January 18, 2025",
-            "time": "5:30 PM",
-            "location": "Communication Building, Theater",
-            "description": "A discussion on bioethics, medical decision-making, and the philosophy of healthcare in the 21st century.",
-            "speaker": "Dr. Marcus Johnson, Johns Hopkins"
-        },
-        {
-            "title": "Fall Semester Opening Reception",
-            "date": "September 5, 2024",
-            "time": "5:00 PM",
-            "location": "Main Library, Reading Room",
-            "description": "Kicked off the academic year with an inspiring talk on 'The Life of the Mind' and welcomed new members to the institute.",
-            "speaker": "Dean Margaret Thompson"
-        },
-        {
-            "title": "Political Philosophy Roundtable",
-            "date": "October 12, 2024",
-            "time": "6:30 PM",
-            "location": "Robertson Hall, Room 105",
-            "description": "Faculty and students engaged in lively discussion about justice, governance, and the common good in contemporary society.",
-            "speaker": "Panel of Regent Faculty"
-        }
-    ],
-    newsletters: [
-        {
-            "title": "Fall Semester Highlights",
-            "date": "October 2024",
-            "preview": "Read about our successful opening reception, upcoming debates, and new partnerships with academic departments.",
-            "link": "#"
-        },
-        {
-            "title": "Welcome Back Edition",
-            "date": "September 2024",
-            "preview": "New semester brings exciting opportunities for intellectual growth. Meet our new board members and learn about fall events.",
-            "link": "#"
-        },
-        {
-            "title": "Summer Planning Issue",
-            "date": "June 2024",
-            "preview": "Preview of fall programming, summer reading recommendations, and reflections on the past academic year.",
-            "link": "#"
-        }
-    ]
-};
-
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -189,7 +80,6 @@ async function loadExecutiveBoard() {
         boardMembers = await response.json();
     } catch (error) {
         console.log('Using fallback board data (fetch failed - likely running locally)');
-        boardMembers = FALLBACK_DATA.board;
     }
     
     const boardContainer = document.getElementById('executive-board');
@@ -213,7 +103,6 @@ async function loadAwards() {
         awards = await response.json();
     } catch (error) {
         console.log('Using fallback awards data (fetch failed - likely running locally)');
-        awards = FALLBACK_DATA.awards;
     }
     
     const awardsContainer = document.getElementById('awards');
@@ -243,7 +132,6 @@ async function loadEvents() {
         }
     } catch (error) {
         console.log('Using fallback events data (fetch failed - likely running locally)');
-        allEvents = FALLBACK_DATA.events;
     }
     
     // Automatically sort events based on current date
@@ -358,7 +246,6 @@ async function loadNewsletters() {
         newsletters = await response.json();
     } catch (error) {
         console.log('Using fallback newsletter data (fetch failed - likely running locally)');
-        newsletters = FALLBACK_DATA.newsletters;
     }
     
     const container = document.getElementById('newsletters-list');
