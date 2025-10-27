@@ -14,7 +14,7 @@ const FALLBACK_DATA = {
             "name": "Sarah Thompson",
             "position": "President",
             "bio": "Senior Philosophy major passionate about fostering intellectual discourse and academic excellence at Regent University.",
-            "image": "images/default-avatar.png"
+            "image": "images/board/president.png"
         },
         {
             "name": "Michael Chen",
