@@ -2,7 +2,7 @@
 
 A modern, responsive multi-page website for the Thomistic Institute at Regent University, optimized for GitHub Pages hosting.
 
-🌐 **Live Demo**: [View Live Site](https://yourusername.github.io/Thomistic-institute)
+🌐 **Live Demo**: [View Live Site](https://regent-thomistic.github.io)
 
 ## ✨ New Features in Multi-Page Version
 
