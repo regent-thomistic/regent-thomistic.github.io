@@ -1,5 +1,5 @@
 {
-    "_comment": "All events go in the allEvents array. They are automatically sorted into upcoming/past based on the current date. Use format 'Month DD, YYYY' for dates.",
+    "_comment": "All events go in the allEvents array. They are automatically sorted into upcoming/past based on the current date. Use format 'Month DD, YYYY' for dates. Optionally add 'image' field with filename from images/photos/ directory.",
     "allEvents": [
         {
             "title": "Philosophy and Faith Symposium",
@@ -7,7 +7,8 @@
             "time": "6:00 PM",
             "location": "Robertson Hall, Room 201",
             "description": "Join us for an evening exploring the intersection of philosophical inquiry and religious faith. Features panel discussion and Q&A session.",
-            "speaker": "Dr. Robert Williams, Georgetown University"
+            "speaker": "Dr. Robert Williams, Georgetown University",
+            "image": "symposium.jpg"
         },
         {
             "title": "Annual Thomistic Debate Championship",
@@ -31,7 +32,8 @@
             "time": "9:00 AM - 4:00 PM",
             "location": "University Chapel",
             "description": "All-day conference featuring student paper presentations, keynote addresses, and networking opportunities for philosophy enthusiasts.",
-            "speaker": "Multiple Speakers"
+            "speaker": "Multiple Speakers",
+            "image": "conference.jpg"
         },
         {
             "title": "Fall Semester Opening Reception",

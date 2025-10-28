@@ -1,19 +1,23 @@
-# Thomistic Institute Website
+# Thomistic Institute Website - Multi-Page Version
 
-A modern, responsive website for the Thomistic Institute at Regent University, optimized for GitHub Pages hosting.
+A modern, responsive multi-page website for the Thomistic Institute at Regent University, optimized for GitHub Pages hosting.
 
 🌐 **Live Demo**: [View Live Site](https://yourusername.github.io/Thomistic-institute)
 
-## ✨ Features
+## ✨ New Features in Multi-Page Version
 
-- 📱 **Fully Responsive Design** - Works on desktop, tablet, and mobile
-- 🎨 **Professional Styling** - Regent University colors and branding
-- 📊 **Dynamic Content** - JSON-based data management
-- 📅 **Smart Event Management** - Automatic sorting of upcoming/past events
-- 👥 **Executive Board Display** - Showcase leadership with photos and bios
-- 🏆 **Awards Section** - Display achievements and recognition
-- 📰 **Newsletter Integration** - Archive and Google Forms signup
-- 🚀 **GitHub Pages Ready** - Zero configuration deployment
+### Multi-Page Navigation
+- **Separate Pages**: Home, About, Events, and Newsletter each have their own HTML file
+- **Direct URL Access**: Navigate directly to `/home.html`, `/about.html`, `/events.html`, or `/newsletter.html`
+- **Logo in Navigation**: Thomistic Institute logo displayed prominently in navbar
+
+### Enhanced Events
+- **📸 Event Photos**: Optional background images for event cards (place images in `images/photos/`)
+- **🗺️ Interactive Maps**: Click location to open Google Maps in new window
+- **📅 Calendar Integration**: 
+  - Add events to Google Calendar with one click
+  - Download .ics files for Apple Calendar/Outlook
+  - Automatic 2-hour event duration
 
 ## 🚀 Quick Start - Deploy in 2 Minutes!
 
@@ -28,38 +32,56 @@ A modern, responsive website for the Thomistic Institute at Regent University, o
 
 ✅ Your site will be live at `https://[your-username].github.io/[repository-name]` in ~5 minutes!
 
-### Option 2: Fork and Deploy
+## 📁 File Structure
 
-1. Fork this repository
-2. Go to Settings → Pages
-3. Enable GitHub Pages (select main branch)
-4. Done! Your site is live
-
-### Option 3: Clone and Customize
-
-```bash
-git clone https://github.com/yourusername/Thomistic-institute.git
-cd Thomistic-institute
-
-# Edit content (see customization guide below)
-
-git add .
-git commit -m "Initial customization"
-git push origin main
+```
+Thomistic-institute/
+├── 📄 index.html              # Redirects to home.html
+├── 📄 home.html               # Home page
+├── 📄 about.html              # About page (board & awards)
+├── 📄 events.html             # Events page
+├── 📄 newsletter.html         # Newsletter page
+├── 🎨 css/
+│   └── styles.css            # All styles (includes logo support)
+├── ⚙️ js/
+│   ├── main.js               # Core functionality
+│   └── events.js             # Enhanced events features
+├── 📊 data/                  # JSON content files
+│   ├── board.json
+│   ├── awards.json  
+│   ├── events.json          # Now with optional image support
+│   └── newsletters.json
+├── 🖼️ images/
+│   ├── ti-logo.png           # Main logo (used in navbar)
+│   ├── board/                # Member photos
+│   ├── photos/               # Event background images
+│   └── default-avatar.png
+├── 📰 newsletters/           # PDF files
+└── 🚫 404.html              # Custom error page
 ```
 
 ## 📝 Content Management
 
-All content is managed through simple JSON files - no coding required!
+### Adding Events with Photos
 
-### Directory Structure
+Edit `data/events.json`:
+```json
+{
+    "title": "Philosophy Symposium",
+    "date": "December 15, 2024",
+    "time": "6:00 PM",
+    "location": "Robertson Hall",
+    "description": "An evening of philosophical discourse.",
+    "speaker": "Dr. Robert Williams",
+    "image": "symposium.jpg"     // Optional - omit for no background
+}
 ```
-data/
-├── board.json        # Executive board members
-├── awards.json       # Awards and recognition  
-├── events.json       # All events (auto-sorted by date!)
-└── newsletters.json  # Newsletter archive
-```
+
+**Photo Guidelines:**
+- Place images in `images/photos/` directory
+- Recommended size: 800x400px or similar 2:1 ratio
+- Formats: JPG, PNG
+- Images will be used as card background with overlay
 
 ### Adding Executive Board Members
 
@@ -73,44 +95,12 @@ Edit `data/board.json`:
 }
 ```
 
-### Adding Events
+### Logo Configuration
 
-Edit `data/events.json`:
-```json
-{
-    "title": "Philosophy Symposium",
-    "date": "December 15, 2024",
-    "time": "6:00 PM",
-    "location": "Robertson Hall",
-    "description": "An evening of philosophical discourse.",
-    "speaker": "Dr. Robert Williams"
-}
-```
-
-**✨ Magic Feature**: Events automatically move from "Upcoming" to "Past" based on the current date!
-
-### Adding Awards
-
-Edit `data/awards.json`:
-```json
-{
-    "title": "Excellence in Academic Programming",
-    "year": "2024",
-    "description": "Recognized for outstanding contribution to student development."
-}
-```
-
-### Adding Newsletters
-
-Edit `data/newsletters.json`:
-```json
-{
-    "title": "Fall Semester Highlights",
-    "date": "October 2024",
-    "preview": "Read about our recent events and upcoming opportunities.",
-    "link": "newsletters/fall-2024.pdf"
-}
-```
+- Logo file: `images/ti-logo.png`
+- The logo is taller than wide and sized to 60px height (50px on mobile)
+- Logo appears next to "Thomistic Institute" text in navigation bar
+- To replace: Simply replace `images/ti-logo.png` with your own image
 
 ## 🎨 Customization
 
@@ -125,14 +115,7 @@ const CONFIG = {
 };
 ```
 
-### 2. Create Google Form for Newsletter
-
-1. Go to [Google Forms](https://forms.google.com)
-2. Create form with Name and Email fields
-3. Click Send → Link icon → Copy
-4. Paste link in `js/main.js`
-
-### 3. Customize Colors
+### 2. Customize Colors
 
 Edit `css/styles.css`:
 ```css
@@ -143,11 +126,25 @@ Edit `css/styles.css`:
 }
 ```
 
-### 4. Add Images
+## 🗺️ Location Settings
 
-- Board photos: Add to `images/board/` 
-- Recommended: 400x400px JPG/PNG
-- Update paths in `data/board.json`
+The maps feature automatically appends "Regent University, Virginia Beach, VA" to location searches. To change this:
+
+Edit `js/events.js`, find the `showMap` function:
+```javascript
+const encodedLocation = encodeURIComponent(
+    location + ', Your University, Your City, Your State'
+);
+```
+
+## 📅 Calendar Event Duration
+
+By default, calendar events are set to 2 hours. To change:
+
+Edit `js/events.js`, find both `addToGoogleCalendar` and `addToAppleCalendar` functions:
+```javascript
+endDate.setHours(endDate.getHours() + 2); // Change 2 to desired hours
+```
 
 ## 🛠️ Local Development
 
@@ -166,85 +163,54 @@ php -S localhost:8000
 
 Visit `http://localhost:8000`
 
-**Pro tip**: The site includes fallback data, so you can even double-click `index.html` to preview!
-
 ## 📤 Updating Your Site
 
 After making changes:
 
 ```bash
 git add .
-git commit -m "Update events and board members"
+git commit -m "Update content"
 git push
 ```
 
 Changes appear live in 2-5 minutes!
 
-## 🌐 Custom Domain Setup
+## 🌐 URL Structure
 
-1. Create `CNAME` file with your domain
-2. In Settings → Pages → Custom domain
-3. Add your domain
-4. Configure DNS:
-   ```
-   A Records: 185.199.108.153
-             185.199.109.153
-             185.199.110.153
-             185.199.111.153
-   ```
+After deployment, your pages will be accessible at:
+- `https://yourdomain.com/` or `/index.html` → Redirects to home
+- `https://yourdomain.com/home.html` → Home page
+- `https://yourdomain.com/about.html` → About page
+- `https://yourdomain.com/events.html` → Events page
+- `https://yourdomain.com/newsletter.html` → Newsletter page
 
 ## 🐛 Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Site not appearing | Wait 10 minutes, check Settings → Pages for URL |
-| 404 Error | Ensure Pages is enabled, repository is public |
-| Images broken | Check file paths, case-sensitive names |
-| Events not sorting | Use format "Month DD, YYYY" |
-
-## 📁 Complete File Structure
-
-```
-Thomistic-institute/
-├── 📄 index.html              # Main page
-├── 🎨 css/
-│   └── styles.css            # All styles
-├── ⚙️ js/
-│   └── main.js              # JavaScript (with fallback data)
-├── 📊 data/                  # JSON content files
-│   ├── board.json
-│   ├── awards.json  
-│   ├── events.json
-│   └── newsletters.json
-├── 🖼️ images/
-│   ├── board/               # Member photos
-│   └── default-avatar.png
-├── 📰 newsletters/           # PDF files
-├── ⚡ .github/
-│   └── workflows/
-│       └── deploy.yml       # Auto-deployment
-├── 🚫 .nojekyll             # Disable Jekyll
-└── ⚙️ _config.yml           # GitHub Pages config
-```
+| Logo not showing | Check that `images/ti-logo.png` exists and path is correct |
+| Events not sorting | Use format "Month DD, YYYY" for dates |
+| Map not opening | Check browser popup blocker settings |
+| Calendar not downloading | Check browser download settings |
+| Images not loading | Verify images are in correct directories and paths match JSON |
 
 ## 💡 Pro Tips
 
-1. **Automatic Event Management**: Just add all events to `events.json` - they automatically sort!
-2. **Fallback Data**: Site works even without a server - great for local testing
-3. **Mobile First**: Fully responsive design looks great on all devices
-4. **Fast Updates**: Push changes and see them live in minutes
+1. **Event Photos**: Use consistent aspect ratios (2:1 recommended) for best appearance
+2. **Calendar Integration**: Test calendar links to ensure they work with your event data
+3. **Mobile Menu**: Logo scales down to 50px on mobile for better fit
+4. **Maps**: Location searches work best with specific building names
+5. **Multi-Page Benefits**: Better SEO, easier navigation, shareable URLs
 
-## 📝 License
+## 📝 Migration from Single Page
 
-© 2024 Thomistic Institute, Regent University. All rights reserved.
+If you're updating from the old single-page version:
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Replace your entire site with these new files
+2. Update any external links to point to specific pages (e.g., `/about.html` instead of `/#about`)
+3. Test all navigation links
+4. Add logo image to `images/ti-logo.png`
+5. Optionally add event photos to `images/photos/`
 
 ## 📞 Support
 

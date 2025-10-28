@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Thomistic Institute</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/ti-logo.png" alt="Thomistic Institute Logo" class="nav-logo">
+                <div class="nav-text">
+                    <h1>Thomistic Institute</h1>
+                    <span class="subtitle">Regent University Chapter</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="newsletter.html" class="nav-link">Newsletter</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to the Thomistic Institute</h2>
+                <p class="hero-subtitle">Fostering intellectual discourse and academic excellence at Regent University</p>
+                <a href="about.html" class="btn-primary">Learn More</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="intro-section">
+                <img src="images/ti-logo.png" alt="TI Logo" style="height:256px;">
+                <p>The Thomistic Institute is dedicated to promoting philosophical inquiry, theological discussion, and academic excellence through engaging events, distinguished speakers, and collaborative learning experiences.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Thomistic Institute</h4>
+                    <p>Regent University<br>
+                    1000 Regent University Drive<br>
+                    Virginia Beach, VA 23464</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <span id="contact-email">info@Thomistic.regent.edu</span><br>
+                    Phone: <span id="contact-phone">(757) 352-4000</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Thomistic Institute, Regent University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileMenu();
+            updateFooter();
+        });
+    </script>
+</body>
+</html>

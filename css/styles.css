@@ -53,6 +53,23 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem 20px;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-text {
+    display: flex;
+    flex-direction: column;
+}
+
 .nav-brand h1 {
     font-size: 1.8rem;
     margin-bottom: 0;
@@ -149,13 +166,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Page Sections */
 .page-section {
-    display: none;
     min-height: calc(100vh - 80px);
     padding: 3rem 0;
-}
-
-.page-section.active {
-    display: block;
 }
 
 .section-title {
@@ -310,6 +322,30 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 1.5rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 120px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.event-card.has-background .event-card-header {
+    min-height: 200px;
+}
+
+.event-header-overlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.event-card:not(.has-background) .event-header-overlay {
+    background: transparent;
+    padding: 0;
 }
 
 .event-date {
@@ -327,13 +363,25 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
 }
 
+.event-location-wrapper {
+    margin-bottom: 1rem;
+}
+
 .event-location {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.event-location:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 .event-description {
@@ -349,6 +397,33 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     color: var(--secondary-color);
     font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.event-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.event-action-btn {
+    flex: 1;
+    min-width: 140px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-action-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 /* Newsletter Section */
@@ -514,7 +589,7 @@ footer {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 80px;
         flex-direction: column;
         background-color: var(--bg-white);
         width: 100%;
@@ -552,22 +627,25 @@ footer {
     .board-grid {
         grid-template-columns: 1fr;
     }
-}
 
-/* Loading Spinner */
-.loading {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid var(--border-color);
-    border-top-color: var(--secondary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
+    .nav-logo {
+        height: 50px;
+    }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+    .nav-brand h1 {
+        font-size: 1.3rem;
+    }
+
+    .nav-brand .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .event-actions {
+        flex-direction: column;
+    }
+
+    .event-action-btn {
+        width: 100%;
     }
 }
 

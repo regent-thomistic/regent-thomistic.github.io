@@ -2,165 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=home.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomistic Institute - Regent University Chapter</title>
+    <title>Redirecting - Thomistic Institute</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <h1>Thomistic Institute</h1>
-                <span class="subtitle">Regent University Chapter</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#events" class="nav-link">Events</a></li>
-                <li><a href="#newsletter" class="nav-link">Newsletter</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center;">
+        <div>
+            <h2>Redirecting to Thomistic Institute...</h2>
+            <p>If you are not redirected, <a href="home.html">click here</a>.</p>
         </div>
-    </nav>
-
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="page-section active">
-            <div class="hero">
-                <div class="hero-content">
-                    <h2 class="hero-title">Welcome to the Thomistic Institute</h2>
-                    <p class="hero-subtitle">Fostering intellectual discourse and academic excellence at Regent University</p>
-                    <button class="btn-primary" onclick="navigateTo('about')">Learn More</button>
-                </div>
-            </div>
-            <div class="container">
-                <div class="intro-section">
-                    <img src = "images/ti-logo.png" alt="TI Logo" style="height:256px;">
-                    <p>The Thomistic Institute is dedicated to promoting philosophical inquiry, theological discussion, and academic excellence through engaging events, distinguished speakers, and collaborative learning experiences.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section (Executive Board & Awards) -->
-        <section id="about" class="page-section">
-            <div class="container">
-                <h2 class="section-title">About Us</h2>
-                
-                <div class="subsection">
-                    <h3>Executive Board</h3>
-                    <div id="executive-board" class="board-grid">
-                        <!-- Board members will be loaded dynamically from JSON -->
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>Awards & Recognition</h3>
-                    <div id="awards" class="awards-list">
-                        <!-- Awards will be loaded dynamically from JSON -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events Section -->
-        <section id="events" class="page-section">
-            <div class="container">
-                <h2 class="section-title">Events</h2>
-                
-                <div class="events-tabs">
-                    <button class="tab-btn active" data-tab="upcoming">Upcoming Events</button>
-                    <button class="tab-btn" data-tab="past">Past Events</button>
-                </div>
-
-                <div class="tab-content active" id="upcoming-events">
-                    <div class="events-grid">
-                        <!-- Upcoming events will be loaded dynamically from JSON -->
-                    </div>
-                </div>
-
-                <div class="tab-content" id="past-events">
-                    <div class="events-grid">
-                        <!-- Past events will be loaded dynamically from JSON -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section id="newsletter" class="page-section">
-            <div class="container">
-                <h2 class="section-title">Newsletter</h2>
-                
-                <div class="newsletter-content">
-                    <div class="newsletter-info">
-                        <h3>Stay Connected</h3>
-                        <p>Join our mailing list to receive updates about upcoming events, guest speakers, and institute news.</p>
-                        <div class="newsletter-benefits">
-                            <ul>
-                                <li>Monthly updates on institute activities</li>
-                                <li>Early access to event registration</li>
-                                <li>Exclusive content and resources</li>
-                                <li>Academic opportunities and announcements</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="newsletter-signup">
-                        <h3>Sign Up Today</h3>
-                        <p>Click the button below to sign up for our newsletter through Google Forms.</p>
-                        <a href="https://forms.google.com/your-form-link" target="_blank" class="btn-primary" id="newsletter-signup-btn">
-                            Sign Up for Newsletter
-                        </a>
-                        <p class="privacy-note">We respect your privacy and will never share your information with third parties.</p>
-                    </div>
-                </div>
-
-                <div class="past-newsletters">
-                    <h3>Past Newsletters</h3>
-                    <div id="newsletters-list" class="newsletters-grid">
-                        <!-- Past newsletters will be loaded dynamically from JSON -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Thomistic Institute</h4>
-                    <p>Regent University<br>
-                    1000 Regent University Drive<br>
-                    Virginia Beach, VA 23464</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#newsletter">Newsletter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: <span id="contact-email">info@Thomistic.regent.edu</span><br>
-                    Phone: <span id="contact-phone">(757) 352-4000</span></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Thomistic Institute, Regent University. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    </div>
 </body>
 </html>
