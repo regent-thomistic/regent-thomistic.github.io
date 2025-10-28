@@ -82,6 +82,16 @@
             "location": "Student Center Theater",
             "description": "Watch 'The Matrix' followed by a discussion on epistemology, free will, and the nature of reality.",
             "speaker": "Film Discussion Led by Philosophy Faculty"
+        },
+        {
+            "title": "Test Event",
+            "date": "January 1, 2100",
+            "time": "7:00 PM",
+            "location": "Classroom Building",
+            "mapUrl": "https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d846.1436271099769!2d-76.19591234856479!3d36.803828623752466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!3e0!4m4!1s0x89babdc3fc7104c3%3A0x8bde596ce12600a5!3m2!1d36.8036726!2d-76.195309!4m3!3m2!1d36.8038248!2d-76.1957315!5e0!3m2!1sen!2sus!4v1761680316924!5m2!1sen!2sus",
+            "description": "We will be partying at the function, fr fr.",
+            "speaker": "King Kotrosa I",
+            "image": "augustine.png"
         }
     ]
 }
