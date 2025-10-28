@@ -3,7 +3,7 @@
 // Configuration
 const CONFIG = {
     newsletterFormUrl: 'https://forms.google.com/your-form-link',
-    contactEmail: 'info@Thomistic.regent.edu',
+    contactEmail: 'thomistic@mail.regent.edu',
     contactPhone: '(757) 352-4000',
     googleCalendarId: 'YOUR_GOOGLE_CALENDAR_ID@group.calendar.google.com', // Update this
     icalFeedUrl: 'YOUR_ICAL_FEED_URL' // Update this for Apple Calendar subscription
