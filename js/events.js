@@ -176,7 +176,7 @@ function showEmbeddedMap(e, location, eventTitle) {
     iframe.loading = 'lazy';
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    iframe.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodedLocation}`;
+    iframe.src = `https://www.google.com/maps?q=${encodedLocation}&output=embed`;
     
     // Clear and add iframe
     mapEmbed.innerHTML = '';
