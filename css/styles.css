@@ -665,3 +665,346 @@ footer {
 .hidden {
     display: none;
 }
+
+/* Calendar Follow Bar */
+.calendar-follow-bar {
+    background-color: var(--accent-color);
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-follow-bar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.calendar-follow-text {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.calendar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.calendar-follow-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-follow-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.calendar-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.calendar-dropdown-content.show {
+    display: block;
+}
+
+.calendar-dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-dropdown-content a:hover {
+    background-color: var(--bg-light);
+}
+
+.calendar-dropdown-content a:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.calendar-dropdown-content a:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
+/* Carousel Styles */
+.carousel-section {
+    margin: 3rem 0;
+}
+
+.carousel-section h3 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow-hover);
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-light);
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.carousel-dots {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot:hover,
+.dot.active {
+    background-color: var(--secondary-color);
+}
+
+/* Event Calendar Dropdown */
+.event-calendar-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.event-calendar-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.event-calendar-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.event-calendar-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 100;
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 5px;
+}
+
+.event-calendar-dropdown-content.show {
+    display: block;
+}
+
+.event-calendar-dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.event-calendar-dropdown-content a:hover {
+    background-color: var(--bg-light);
+}
+
+.event-calendar-dropdown-content a:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.event-calendar-dropdown-content a:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
+/* Map Container */
+.map-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-height: 80vh;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.map-container.hidden {
+    transform: translateY(100%);
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.map-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.map-close-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.map-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#map-embed {
+    width: 100%;
+    height: 450px;
+}
+
+#map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+    .calendar-follow-bar .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .calendar-dropdown-content {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .carousel-btn {
+        padding: 12px;
+        font-size: 1.2rem;
+    }
+    
+    .dot {
+        height: 10px;
+        width: 10px;
+    }
+    
+    .map-container {
+        max-height: 90vh;
+    }
+    
+    .map-header {
+        padding: 1rem;
+    }
+    
+    #map-embed {
+        height: 350px;
+    }
+}
+
+/* Remove old event-actions styles as they're replaced by dropdown */
+.event-actions {
+    display: none;
+}

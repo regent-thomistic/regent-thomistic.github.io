@@ -20,10 +20,10 @@
                 </div>
             </div>
             <ul class="nav-menu">
-                <li><a href="home.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="events.html" class="nav-link">Events</a></li>
-                <li><a href="newsletter.html" class="nav-link">Newsletter</a></li>
+                <li><a href="home" class="nav-link">Home</a></li>
+                <li><a href="about" class="nav-link active">About</a></li>
+                <li><a href="events" class="nav-link">Events</a></li>
+                <li><a href="newsletter" class="nav-link">Newsletter</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -32,6 +32,20 @@
             </div>
         </div>
     </nav>
+
+    <!-- Calendar Follow Section -->
+    <div class="calendar-follow-bar">
+        <div class="container">
+            <span class="calendar-follow-text">📅 Follow our calendar</span>
+            <div class="calendar-dropdown">
+                <button class="calendar-follow-btn">Subscribe to Calendar ▼</button>
+                <div class="calendar-dropdown-content">
+                    <a href="#" id="subscribe-google-calendar">Google Calendar</a>
+                    <a href="#" id="subscribe-apple-calendar">Apple Calendar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <div class="container">
@@ -65,9 +79,9 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="events">Events</a></li>
+                        <li><a href="newsletter">Newsletter</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -89,6 +103,7 @@
             loadExecutiveBoard();
             loadAwards();
             updateFooter();
+            initCalendarSubscribe();
         });
     </script>
 </body>

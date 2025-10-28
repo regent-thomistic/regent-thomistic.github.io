@@ -2,9 +2,11 @@
 
 // Configuration
 const CONFIG = {
-    newsletterFormUrl: 'https://forms.google.com/your-form-link', // Replace with actual Google Form link
+    newsletterFormUrl: 'https://forms.google.com/your-form-link',
     contactEmail: 'info@Thomistic.regent.edu',
-    contactPhone: '(757) 352-4000'
+    contactPhone: '(757) 352-4000',
+    googleCalendarId: 'YOUR_GOOGLE_CALENDAR_ID@group.calendar.google.com', // Update this
+    icalFeedUrl: 'YOUR_ICAL_FEED_URL' // Update this for Apple Calendar subscription
 };
 
 // Mobile menu functionality
@@ -17,12 +19,55 @@ function initMobileMenu() {
             navMenu.classList.toggle('active');
         });
         
-        // Close menu when clicking nav links
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
+        });
+    }
+}
+
+// Calendar Subscribe functionality
+function initCalendarSubscribe() {
+    const subscribeBtn = document.querySelector('.calendar-follow-btn');
+    const dropdown = document.querySelector('.calendar-dropdown-content');
+    
+    if (subscribeBtn && dropdown) {
+        subscribeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.matches('.calendar-follow-btn')) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+    
+    // Google Calendar subscribe
+    const googleBtn = document.getElementById('subscribe-google-calendar');
+    if (googleBtn) {
+        googleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const calendarUrl = `https://calendar.google.com/calendar/r?cid=${CONFIG.googleCalendarId}`;
+            window.open(calendarUrl, '_blank');
+        });
+    }
+    
+    // Apple Calendar subscribe
+    const appleBtn = document.getElementById('subscribe-apple-calendar');
+    if (appleBtn) {
+        appleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Note: User needs to provide their iCal feed URL
+            if (CONFIG.icalFeedUrl && CONFIG.icalFeedUrl !== 'YOUR_ICAL_FEED_URL') {
+                window.location.href = CONFIG.icalFeedUrl;
+            } else {
+                alert('Calendar subscription URL not configured. Please contact the administrator.');
+            }
         });
     }
 }
@@ -113,13 +158,11 @@ function setupNewsletterButton() {
 
 // Update footer information
 function updateFooter() {
-    // Set current year
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
     
-    // Set contact information
     const emailElement = document.getElementById('contact-email');
     const phoneElement = document.getElementById('contact-phone');
     

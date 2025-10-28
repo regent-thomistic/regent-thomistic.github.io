@@ -1,4 +1,10 @@
-// Enhanced Events functionality with calendar and map support
+// Enhanced Events functionality with dropdown calendar and embedded map
+
+// Configuration
+const CALENDAR_CONFIG = {
+    calendarId: 'YOUR_GOOGLE_CALENDAR_ID@group.calendar.google.com', // Update this
+    icalFeedUrl: 'YOUR_ICAL_FEED_URL' // Update this
+};
 
 // Load Events from JSON
 async function loadEvents() {
@@ -9,7 +15,6 @@ async function loadEvents() {
         if (!response.ok) throw new Error('Failed to fetch');
         const data = await response.json();
         
-        // Handle different data structures
         if (data.allEvents) {
             allEvents = data.allEvents;
         } else if (data.upcoming || data.past) {
@@ -19,23 +24,20 @@ async function loadEvents() {
         console.log('Using fallback events data (fetch failed - likely running locally)');
     }
     
-    // Automatically sort events based on current date
     const { upcoming, past } = sortEventsByDate(allEvents);
     
-    renderEvents(upcoming, 'upcoming-events');
-    renderEvents(past, 'past-events');
+    renderEvents(upcoming, 'upcoming-events', false); // false = not past events
+    renderEvents(past, 'past-events', true); // true = past events
 }
 
-// Function to automatically sort events by date
 function sortEventsByDate(events) {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
+    today.setHours(0, 0, 0, 0);
     
     const upcoming = [];
     const past = [];
     
     events.forEach(event => {
-        // Parse the event date
         const eventDate = parseEventDate(event.date);
         
         if (eventDate >= today) {
@@ -45,20 +47,12 @@ function sortEventsByDate(events) {
         }
     });
     
-    // Sort upcoming events (earliest first)
-    upcoming.sort((a, b) => {
-        return parseEventDate(a.date) - parseEventDate(b.date);
-    });
-    
-    // Sort past events (most recent first)
-    past.sort((a, b) => {
-        return parseEventDate(b.date) - parseEventDate(a.date);
-    });
+    upcoming.sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
+    past.sort((a, b) => parseEventDate(b.date) - parseEventDate(a.date));
     
     return { upcoming, past };
 }
 
-// Parse event date string to Date object
 function parseEventDate(dateString) {
     const date = new Date(dateString);
     
@@ -70,8 +64,7 @@ function parseEventDate(dateString) {
     return date;
 }
 
-// Render events to the page with enhanced features
-function renderEvents(events, containerId) {
+function renderEvents(events, containerId, isPastEvents) {
     const container = document.getElementById(containerId).querySelector('.events-grid');
     
     if (!events || events.length === 0) {
@@ -79,13 +72,25 @@ function renderEvents(events, containerId) {
         return;
     }
     
-    container.innerHTML = events.map(event => createEventCard(event)).join('');
+    container.innerHTML = events.map(event => createEventCard(event, isPastEvents)).join('');
 }
 
-// Create an event card with enhanced features
-function createEventCard(event) {
+function createEventCard(event, isPastEvents) {
     const backgroundImage = event.image ? `background-image: url('images/photos/${event.image}');` : '';
     const hasBackground = event.image ? 'has-background' : '';
+    
+    // Only show calendar button for upcoming events
+    const calendarButton = !isPastEvents ? `
+        <div class="event-calendar-dropdown">
+            <button class="event-calendar-btn" onclick="toggleCalendarDropdown(event, this)">
+                📅 Add to Calendar... ▼
+            </button>
+            <div class="event-calendar-dropdown-content">
+                <a href="#" onclick="addToGoogleCalendar(event, ${JSON.stringify(escapeEvent(event)).replace(/"/g, '&quot;')}); return false;">Google Calendar</a>
+                <a href="#" onclick="addToAppleCalendar(event, ${JSON.stringify(escapeEvent(event)).replace(/"/g, '&quot;')}); return false;">Apple Calendar</a>
+            </div>
+        </div>
+    ` : '';
     
     return `
         <div class="event-card ${hasBackground}">
@@ -97,31 +102,22 @@ function createEventCard(event) {
             </div>
             <div class="event-card-body">
                 <div class="event-location-wrapper">
-                    <a href="#" class="event-location" onclick="showMap(event, '${escapeQuotes(event.location)}'); return false;">
+                    <a href="#map-container" class="event-location" onclick="showEmbeddedMap(event, '${escapeQuotes(event.location)}', '${escapeQuotes(event.title)}'); return false;">
                         📍 ${event.location}
                     </a>
                 </div>
                 <p class="event-description">${event.description}</p>
                 ${event.speaker ? `<div class="event-speaker">Speaker: ${event.speaker}</div>` : ''}
-                <div class="event-actions">
-                    <button class="event-action-btn" onclick="addToGoogleCalendar(${JSON.stringify(escapeEvent(event)).replace(/"/g, '&quot;')})">
-                        📅 Google Calendar
-                    </button>
-                    <button class="event-action-btn" onclick="addToAppleCalendar(${JSON.stringify(escapeEvent(event)).replace(/"/g, '&quot;')})">
-                        🍎 Apple Calendar
-                    </button>
-                </div>
+                ${calendarButton}
             </div>
         </div>
     `;
 }
 
-// Helper function to escape quotes in strings
 function escapeQuotes(str) {
     return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
 }
 
-// Helper function to escape event data for JSON embedding
 function escapeEvent(event) {
     return {
         title: event.title,
@@ -133,25 +129,83 @@ function escapeEvent(event) {
     };
 }
 
-// Show map in a modal/new window
-function showMap(event, location) {
-    event.preventDefault();
+// Toggle calendar dropdown
+function toggleCalendarDropdown(e, button) {
+    e.stopPropagation();
     
-    // Encode location for URL
+    // Close all other dropdowns
+    document.querySelectorAll('.event-calendar-dropdown-content').forEach(dropdown => {
+        if (dropdown !== button.nextElementSibling) {
+            dropdown.classList.remove('show');
+        }
+    });
+    
+    // Toggle this dropdown
+    const dropdown = button.nextElementSibling;
+    dropdown.classList.toggle('show');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.matches('.event-calendar-btn')) {
+        document.querySelectorAll('.event-calendar-dropdown-content').forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    }
+});
+
+// Show embedded map
+function showEmbeddedMap(e, location, eventTitle) {
+    e.preventDefault();
+    
+    const mapContainer = document.getElementById('map-container');
+    const mapEmbed = document.getElementById('map-embed');
+    const mapTitle = document.getElementById('map-title');
+    
+    // Update title
+    mapTitle.textContent = eventTitle;
+    
+    // Encode location for Google Maps embed
     const encodedLocation = encodeURIComponent(location + ', Regent University, Virginia Beach, VA');
     
-    // Create Google Maps URL
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+    // Create iframe
+    const iframe = document.createElement('iframe');
+    iframe.width = '100%';
+    iframe.height = '450';
+    iframe.style.border = '0';
+    iframe.loading = 'lazy';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodedLocation}`;
     
-    // Open in new window
-    window.open(mapsUrl, 'Map', 'width=800,height=600,scrollbars=yes,resizable=yes');
+    // Clear and add iframe
+    mapEmbed.innerHTML = '';
+    mapEmbed.appendChild(iframe);
+    
+    // Show map container
+    mapContainer.classList.remove('hidden');
+    
+    // Smooth scroll to map
+    mapContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Close map
+function closeMap() {
+    const mapContainer = document.getElementById('map-container');
+    mapContainer.classList.add('hidden');
+    
+    // Clear map content
+    document.getElementById('map-embed').innerHTML = '';
 }
 
 // Add event to Google Calendar
-function addToGoogleCalendar(event) {
+function addToGoogleCalendar(e, event) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const startDate = parseEventDate(event.date);
     const endDate = new Date(startDate);
-    endDate.setHours(endDate.getHours() + 2); // Assume 2-hour duration
+    endDate.setHours(endDate.getHours() + 2);
     
     const formatGoogleDate = (date) => {
         return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -169,11 +223,14 @@ function addToGoogleCalendar(event) {
     window.open(`https://calendar.google.com/calendar/render?${params.toString()}`, '_blank');
 }
 
-// Add event to Apple Calendar (iCal format)
-function addToAppleCalendar(event) {
+// Add event to Apple Calendar
+function addToAppleCalendar(e, event) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const startDate = parseEventDate(event.date);
     const endDate = new Date(startDate);
-    endDate.setHours(endDate.getHours() + 2); // Assume 2-hour duration
+    endDate.setHours(endDate.getHours() + 2);
     
     const formatICalDate = (date) => {
         return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -195,7 +252,6 @@ SEQUENCE:0
 END:VEVENT
 END:VCALENDAR`;
     
-    // Create a blob and download link
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
@@ -214,11 +270,9 @@ function initEventTabs() {
         btn.addEventListener('click', () => {
             const tabName = btn.getAttribute('data-tab');
             
-            // Update button states
             tabBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
-            // Update content visibility
             tabContents.forEach(content => {
                 content.classList.remove('active');
                 if (content.id === `${tabName}-events`) {
