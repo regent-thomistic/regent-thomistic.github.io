@@ -100,6 +100,15 @@
             "description": "We are pleased to invite Dr. Michael Root, visiting from the Catholic University of America to Regent. It will be such a pleasure to hear him speak on the subject of faith and works.",
             "speaker": "Dr. Michael Root",
             "image": "faithorworks.png"
+        },
+        {
+            "title": "[Reading Group] Boethius' Consolation of Philosophy",
+            "date": "November 7, 2025, November 14, 2025, November 17, 2025, December 5, 2025",
+            "time": "3:00 PM",
+            "location": "Divinity Building: DIV 371 - Honors Greenhouse",
+            "description": "Led by Alli Taylor, this reading group will investigate nature’s hidden secrets according to Boethius. Please register to attend: https://docs.google.com/forms/d/e/1FAIpQLScdvIBxGrHtM7NuYAi3WZ_Q99nfBY8D5vQFoZaMrEBsNY5dug/",
+            "speaker": "Alli Taylor",
+            "image": "boethius.png"
         }
     ]
 }
