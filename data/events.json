@@ -84,11 +84,19 @@
             "speaker": "Film Discussion Led by Philosophy Faculty"
         },
         {
-            "title": "Lecture: Are We Saved by Faith or Works?",
+            "title": "[Lecture] Are We Saved by Faith or Works?",
             "date": "November 3, 2025",
             "time": "6:00 PM",
-            "location": "Moot Court Room",
-            "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1317.610963248397!2d-76.19713760913163!3d36.800585680424405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89babdc4555607b9%3A0x78de9b0af02249f!2sRegent%20University!5e0!3m2!1sen!2sus!4v1761768039107!5m2!1sen!2sus",
+            "location": "Robertson Hall: Moot Court Room",
+            "description": "We are pleased to invite Dr. Michael Root, visiting from the Catholic University of America to Regent. It will be such a pleasure to hear him speak on the subject of faith and works.",
+            "speaker": "Dr. Michael Root",
+            "image": "faithorworks.png"
+        },
+        {
+            "title": "[Seminar] The Catholic Understanding of Merit",
+            "date": "November 4, 2025",
+            "time": "11:00 AM",
+            "location": "Divinity Building: DIV 371 - Honors Greenhouse",
             "description": "We are pleased to invite Dr. Michael Root, visiting from the Catholic University of America to Regent. It will be such a pleasure to hear him speak on the subject of faith and works.",
             "speaker": "Dr. Michael Root",
             "image": "faithorworks.png"
