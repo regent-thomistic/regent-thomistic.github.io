@@ -109,6 +109,15 @@
             "description": "Led by Alli Taylor, this reading group will investigate nature’s hidden secrets according to Boethius. Please register to attend: https://docs.google.com/forms/d/e/1FAIpQLScdvIBxGrHtM7NuYAi3WZ_Q99nfBY8D5vQFoZaMrEBsNY5dug/",
             "speaker": "Alli Taylor",
             "image": "boethius.png"
+        },
+        {
+            "title": "[Meeting] Coffee with Aquinas",
+            "date": "November 7, 2025",
+            "time": "3:00 PM",
+            "location": "Divinity Building: DIV 371 - Honors Greenhouse",
+            "description": "",
+            "speaker": "Alli Taylor, Aidan Abner",
+            "image": "aquinas.png"
         }
     ]
 }
