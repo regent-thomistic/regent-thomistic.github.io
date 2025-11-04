@@ -111,9 +111,9 @@
             "image": "boethius.png"
         },
         {
-            "title": "[Meeting] Coffee with Aquinas",
+            "title": "[Meeting] Coffee with Aquinas: On Virtue",
             "date": "November 10, 2025",
-            "time": "3:00 PM",
+            "time": "11:45 AM",
             "location": "Divinity Building: DIV 371 - Honors Greenhouse",
             "description": "Coffee with Aquinas event, enjoy coffee and donuts while we discuss the themes of Thomas Aquinas.",
             "speaker": "Alli Taylor, Aidan Abner",
@@ -136,6 +136,15 @@
             "description": "Discussing Aquinas on the active and contemplative life. We look forward to seeing you at this seminar in the Honors Green House!",
             "speaker": "Fr. Innocent Smith",
             "image": "ismith.png"
+        },
+        {
+            "title": "[Meeting] Coffee with Aquinas: On Purpose and Faith",
+            "date": "December 1, 2025",
+            "time": "11:45 AM",
+            "location": "Divinity Building: DIV 371 - Honors Greenhouse",
+            "description": "Coffee with Aquinas event, enjoy coffee and donuts while we discuss the themes of Thomas Aquinas.",
+            "speaker": "Alli Taylor, Aidan Abner",
+            "image": "aquinas.png"
         }
     ]
 }
