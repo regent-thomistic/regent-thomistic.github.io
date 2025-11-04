@@ -112,12 +112,21 @@
         },
         {
             "title": "[Meeting] Coffee with Aquinas",
-            "date": "November 7, 2025",
+            "date": "November 10, 2025",
             "time": "3:00 PM",
             "location": "Divinity Building: DIV 371 - Honors Greenhouse",
-            "description": "",
+            "description": "Coffee with Aquinas event, enjoy coffee and donuts while we discuss the themes of Thomas Aquinas.",
             "speaker": "Alli Taylor, Aidan Abner",
             "image": "aquinas.png"
+        },
+        {
+            "title": "[Lecture] Live Your Life Well: Christian Vocation in a Secular World",
+            "date": "November 24, 2025",
+            "time": "6:00 PM",
+            "location": "Library Auditorium",
+            "description": "Discussing the importance of living the human dimensions of life as the foundation of our divine calling as Christians, i.e. that grace builds on nature. We look forward to seeing you at this lecture.",
+            "speaker": "Fr. Innocent Smith",
+            "image": "ismith.png"
         }
     ]
 }
